@@ -11,12 +11,12 @@ class SelectScreen extends StatefulWidget {
 }
 
 class _SelectScreenState extends State<SelectScreen> {
+
+  final userSettingsRepository = UserSettingsRepository();
+  final sportsRepository = SportsRepository();
+
   @override
   Widget build(BuildContext context) {
-
-    final userSettingsRepository = UserSettingsRepository();
-    final sportsRepository = SportsRepository();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Escolha seu esporte'),
