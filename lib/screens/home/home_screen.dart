@@ -81,6 +81,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fit: BoxFit.contain,
                                 ),
                             ),
+                            if (sport != null)
+                              Positioned(
+                                  top: 8, right: 8,
+                                  child: Container(
+                                    padding: EdgeInsets.all(4.0),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.black54,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: IconButton(
+                                      icon: const Icon(
+                                        Icons.delete,
+                                        color: Colors.white,
+                                        size: 18,
+                                      ),
+                                      padding: EdgeInsets.zero,
+                                      constraints: const BoxConstraints(),
+                                      onPressed: _removeFavorite,
+                                    ),
+                                  )
+                              )
                           ],
                         ),
                       ),
