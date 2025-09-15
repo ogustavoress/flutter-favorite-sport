@@ -56,7 +56,21 @@ class _HomeScreenState extends State<HomeScreen> {
           final sport = snapshot.data;
           return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Placeholder(),
+              child: Center(
+                child: Column(
+                  children: [
+                    Card(),
+                    const SizedBox(height: 16),
+                    Text(
+                      sport == null
+                          ? 'Você ainda não escolheu seu esporte favorito. \nClique na imagem acima'
+                          : sport.name,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 16),
+                    )
+                  ],
+                ),
+              ),
           );
         },
 
