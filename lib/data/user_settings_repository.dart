@@ -21,4 +21,14 @@ class UserSettingsRepository {
       return null;
     }
   }
+
+  Future<void> setSport(Sport sport) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_key, jsonEncode(sport.toJson()));
+  }
+
+  Future<void> clearSport() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_key);
+  }
 }
