@@ -15,6 +15,16 @@ class _SelectScreenState extends State<SelectScreen> {
   final userSettingsRepository = UserSettingsRepository();
   final sportsRepository = SportsRepository();
 
+  late Future<List<Sport>> _sportsFuture;
+  List<Sport> _allSports = [];
+  List<Sport> _filteredSports = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _sportsFuture = sportsRepository.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
