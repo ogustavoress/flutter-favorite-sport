@@ -54,46 +54,48 @@ class _SelectScreenState extends State<SelectScreen> {
             _allSports = sports;
             _filteredSports = sports;
           }
-          return ListView.separated(
-            padding: const EdgeInsets.all(12),
-            itemCount: _filteredSports.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 8),
-            itemBuilder: (context, index) {
-              final s = _filteredSports[index];
-              return Card(
-                clipBehavior: Clip.antiAlias,
-                child: InkWell(
-                  onTap: () async {
-                    await userSettingsRepository.setSport(s);
-                    if (context.mounted)
-                      Navigator.pop(context);
-                  },
-                  child: Padding(
-                      padding: const EdgeInsets.all(12),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          s.logo,
-                          width: 56,
-                          height: 56,
-                          fit: BoxFit.contain,
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                            child: Text(s.name,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600
-                            ),
-                            )
-                        ),
-                        const Icon(Icons.chevron_right),
-                      ],
+          return Expanded(
+            child: ListView.separated(
+              padding: const EdgeInsets.all(12),
+              itemCount: _filteredSports.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 8),
+              itemBuilder: (context, index) {
+                final s = _filteredSports[index];
+                return Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: InkWell(
+                    onTap: () async {
+                      await userSettingsRepository.setSport(s);
+                      if (context.mounted)
+                        Navigator.pop(context);
+                    },
+                    child: Padding(
+                        padding: const EdgeInsets.all(12),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            s.logo,
+                            width: 56,
+                            height: 56,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                              child: Text(s.name,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600
+                              ),
+                              )
+                          ),
+                          const Icon(Icons.chevron_right),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           );
         },
       ),
