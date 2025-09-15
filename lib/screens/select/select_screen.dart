@@ -50,6 +50,10 @@ class _SelectScreenState extends State<SelectScreen> {
               child: Text('Nenhum esporte encontrado'),
             );
           }
+          if (_allSports.isEmpty) {
+            _allSports = sports;
+            _filteredSports = sports;
+          }
           return ListView.separated(
             padding: const EdgeInsets.all(12),
             itemCount: _filteredSports.length,
