@@ -56,6 +56,23 @@ class _SelectScreenState extends State<SelectScreen> {
           }
           return Column(
             children: [
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      labelText: "Buscar time",
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.search),
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        _filteredSports = _allSports.where((sport) => sport.name
+                                .toLowerCase().contains(value.toLowerCase()))
+                                .toList();
+                      });
+                    },
+                  ),
+              ),
               Expanded(
                 child: ListView.separated(
                   padding: const EdgeInsets.all(12),
