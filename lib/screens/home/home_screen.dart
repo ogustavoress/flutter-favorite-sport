@@ -44,6 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ]
       ),
+      body: FutureBuilder<Sport?>(
+        future: _future,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final sport = snapshot.data;
+          return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Placeholder(),
+          );
+        },
+
+      ),
     );
   }
 }
