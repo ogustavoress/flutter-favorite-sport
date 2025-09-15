@@ -48,10 +48,24 @@ class _SelectScreenState extends State<SelectScreen> {
               final s = sports[index];
               return Card(
                 clipBehavior: Clip.antiAlias,
-                child: ,
+                child: InkWell(
+                  onTap: () async {
+                    await userSettingsRepository.setSport(s);
+                    if (context.mounted)
+                      Navigator.pop(context);
+                  },
+                  child: Padding(
+                      padding: const EdgeInsets.all(12),
+                    child: Row(
+                      children: [
+                        /*TODO*/
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
-          )
+          );
         },
       ),
     );
