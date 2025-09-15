@@ -59,7 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Center(
                 child: Column(
                   children: [
-                    Card(),
+                    Card(
+                      elevation: 2,
+                      clipBehavior: Clip.antiAlias,
+                      child: InkWell(
+                        onTap: _goSelect,
+                        child: Stack(),
+                      ),
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       sport == null
