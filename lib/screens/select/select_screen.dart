@@ -52,10 +52,10 @@ class _SelectScreenState extends State<SelectScreen> {
           }
           return ListView.separated(
             padding: const EdgeInsets.all(12),
-            itemCount: sports.length,
+            itemCount: _filteredSports.length,
             separatorBuilder: (_, __) => const SizedBox(height: 8),
             itemBuilder: (context, index) {
-              final s = sports[index];
+              final s = _filteredSports[index];
               return Card(
                 clipBehavior: Clip.antiAlias,
                 child: InkWell(
