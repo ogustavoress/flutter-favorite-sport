@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Basquete",
+    "logo": "assets/images/basquete.png"
+  },
+  {
+    "id": 2,
+    "name": "Futebol",
+    "logo": "assets/images/futebol.png"
+  },
+  {
+    "id": 3,
+    "name": "Genérico",
+    "logo": "assets/images/generico.png"
+  },
+  {
+    "id": 4,
+    "name": "Handebol",
+    "logo": "assets/images/handebol.png"
+  },
+  {
+    "id": 5,
+    "name": "Volei",
+    "logo": "assets/images/volei.png"
+  }
+]
