@@ -31,6 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(_reload);
   }
 
+  Future<void> _removeFavorite() async {
+    await userSettingsRepository.clearSport();
+    setState(_reload);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 160,
                                   fit: BoxFit.contain,
                                 ),
-                            )
+                            ),
                           ],
                         ),
                       ),
