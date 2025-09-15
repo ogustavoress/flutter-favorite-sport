@@ -1,5 +1,6 @@
 import 'package:favorite_sport/data/user_settings_repository.dart';
 import 'package:favorite_sport/model/Sport.dart';
+import 'package:favorite_sport/routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +17,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<Sport?>?_future;
 
   @override
+  void initState() {
+    super.initState();
+    _reload();
+  }
+
+  void _reload() {
+    _future = userSettingsRepository.getSport();
+  }
+
+  Future<void> _goSelect() async {
+    await Navigator.pushNamed(context, Routes.select);
+    setState(_reload);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
