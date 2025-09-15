@@ -40,6 +40,18 @@ class _SelectScreenState extends State<SelectScreen> {
               child: Text('Nenhum esporte encontrado'),
             );
           }
+          return ListView.separated(
+            padding: const EdgeInsets.all(12),
+            itemCount: sports.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 8),
+            itemBuilder: (context, index) {
+              final s = sports[index];
+              return Card(
+                clipBehavior: Clip.antiAlias,
+                child: ,
+              );
+            },
+          )
         },
       ),
     );
