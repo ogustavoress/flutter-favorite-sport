@@ -33,6 +33,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Meu Esporte Favorito'),
+        actions: [
+          IconButton(
+            tooltip: 'Trocar time',
+            icon: const Icon(Icons.swap_horiz),
+            onPressed: _goSelect,
+          )
+        ]
+      ),
+    );
   }
 }
