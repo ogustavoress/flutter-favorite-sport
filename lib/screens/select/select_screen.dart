@@ -58,7 +58,22 @@ class _SelectScreenState extends State<SelectScreen> {
                       padding: const EdgeInsets.all(12),
                     child: Row(
                       children: [
-                        /*TODO*/
+                        Image.asset(
+                          s.logo,
+                          width: 56,
+                          height: 56,
+                          fit: BoxFit.contain,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                            child: Text(s.name,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600
+                            ),
+                            )
+                        ),
+                        const Icon(Icons.chevron_right),
                       ],
                     ),
                   ),
