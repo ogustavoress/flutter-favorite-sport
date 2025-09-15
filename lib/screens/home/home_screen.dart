@@ -64,7 +64,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       clipBehavior: Clip.antiAlias,
                       child: InkWell(
                         onTap: _goSelect,
-                        child: Stack(),
+                        child: Stack(
+                          children: [
+                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Image.asset(sport == null
+                                    ? 'assets/images/generico.png'
+                                    : sport.logo,
+                                  width: 160,
+                                  height: 160,
+                                  fit: BoxFit.contain,
+                                ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
