@@ -24,7 +24,22 @@ class _SelectScreenState extends State<SelectScreen> {
       body: FutureBuilder<List<Sport>>(
         future: sportsRepository.load(),
         builder: (context, snapshot) {
-
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (snapshot.hasError) {
+            return Center(
+              child: Text('Erro ao carregar esportes'),
+            );
+          }
+          final sports = snapshot.data ?? [];
+          if (sports.isEmpty) {
+            return const Center(
+              child: Text('Nenhum esporte encontrado'),
+            );
+          }
         },
       ),
     );
