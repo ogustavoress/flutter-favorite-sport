@@ -32,7 +32,7 @@ class _SelectScreenState extends State<SelectScreen> {
         title: const Text('Escolha seu esporte'),
       ),
       body: FutureBuilder<List<Sport>>(
-        future: sportsRepository.load(),
+        future: _sportsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(
