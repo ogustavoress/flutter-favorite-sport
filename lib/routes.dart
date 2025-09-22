@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class Routes {
   static const String home = '/';
+  static const String intro = '/intro';
   static const String select = '/select';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
