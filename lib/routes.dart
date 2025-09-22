@@ -1,5 +1,6 @@
 import 'package:favorite_sport/screens/home/home_screen.dart';
 import 'package:favorite_sport/screens/select/select_screen.dart';
+import 'package:favorite_sport/screens/splash/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class Routes {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case splash:
+        return MaterialPageRoute(builder: (_) => SplashScreen());
       case home:
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case select:
