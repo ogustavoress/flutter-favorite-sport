@@ -1,6 +1,7 @@
 import 'package:favorite_sport/data/user_settings_repository.dart';
 import 'package:favorite_sport/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,5 +28,19 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         Navigator.pushReplacementNamed(context, Routes.home);
       }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Lottie.asset(
+          'assets/lottie/splash.json',
+          width: 200,
+          height: 200,
+          fit: BoxFit.contain,
+        ),
+      ),
+    )
   }
 }
