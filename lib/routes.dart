@@ -4,8 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
-  static const String home = '/';
+  static const String splash = '/';
   static const String intro = '/intro';
+  static const String home = '/home';
   static const String select = '/select';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
