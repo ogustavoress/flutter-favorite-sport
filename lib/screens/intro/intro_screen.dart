@@ -1,4 +1,5 @@
 import 'package:favorite_sport/data/user_settings_repository.dart';
+import 'package:favorite_sport/routes.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -38,4 +39,23 @@ class _IntroScreenState extends State<IntroScreen> {
 
   int _currentPage = 0;
   bool _dontShowAgain = false;
+
+  void _onNext(){
+    if (_currentPage < _pages.length - 1) {
+      _pageController.nextPage(
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeIn
+      );
+    } else {
+      _finishIntro();
+    }
+  }
+  Future<void> _finishIntro() async {
+    await userSettingsRepository.setShowIntro(!_dontShowAgain);
+    if (!mounted) return;
+    Navigator.pushReplacementNamed(context, Routes.home);
+    }
 }
+
+
+
