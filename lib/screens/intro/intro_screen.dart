@@ -50,6 +50,14 @@ class _IntroScreenState extends State<IntroScreen> {
       _finishIntro();
     }
   }
+  void _onBack() {
+    if (_currentPage > 0) {
+      _pageController.previousPage(
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+      );
+    }
+  }
   Future<void> _finishIntro() async {
     await userSettingsRepository.setShowIntro(!_dontShowAgain);
     if (!mounted) return;
