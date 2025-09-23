@@ -12,7 +12,27 @@ class IntroScreen extends StatefulWidget {
 class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final _isLastPage = _currentPage == _pages.length - 1;
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(child: Placeholder()),
+            if(_isLastPage) Padding(padding: EdgeInsets.all(16)),
+            Padding(
+                padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: 12,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [],
+              ),
+            ),
+          ],
+        )
+      ),
+    );
   }
   final List<Map<String, String>> _pages = [
     {
