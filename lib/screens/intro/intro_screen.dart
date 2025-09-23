@@ -1,3 +1,4 @@
+import 'package:favorite_sport/data/user_settings_repository.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -30,4 +31,11 @@ class _IntroScreenState extends State<IntroScreen> {
       'lottie': 'assets/lottie/intro3.json'
     },
   ];
+
+  final userSettingsRepository = UserSettingsRepository();
+
+  final PageController _pageController = PageController();
+
+  int _currentPage = 0;
+  bool _dontShowAgain = false;
 }
