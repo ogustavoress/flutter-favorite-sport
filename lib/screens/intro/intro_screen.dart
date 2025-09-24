@@ -75,6 +75,22 @@ class _IntroScreenState extends State<IntroScreen> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (_currentPage > 0)
+                    TextButton(onPressed: _onBack, child: Text('Voltar'))
+                  else
+                    SizedBox(width: 80),
+                  TextButton(onPressed: _onNext,
+                  child: Text(_isLastPage ? 'Concluir': 'Avançar'),
+                  )
+                ],
+              ),
+
+            ),
           ],
         )
       ),
