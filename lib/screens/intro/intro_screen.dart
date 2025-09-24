@@ -54,18 +54,25 @@ class _IntroScreenState extends State<IntroScreen> {
               },
               ),
             ),
-            if(_isLastPage)
-              Padding(
-                  padding: EdgeInsets.all(16)
-            ),
-            Padding(
-                padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 12,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [],
+            Visibility(
+              visible: _isLastPage,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: _dontShowAgain,
+                      onChanged: (val) {
+                        setState(() {
+                          _dontShowAgain = val ?? false;
+                        });
+                      }
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
