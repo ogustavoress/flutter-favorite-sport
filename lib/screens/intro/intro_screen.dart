@@ -1,6 +1,7 @@
 import 'package:favorite_sport/data/user_settings_repository.dart';
 import 'package:favorite_sport/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -17,8 +18,46 @@ class _IntroScreenState extends State<IntroScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(child: Placeholder()),
-            if(_isLastPage) Padding(padding: EdgeInsets.all(16)),
+            Expanded(
+              child: PageView.builder(
+              controller: _pageController,
+              itemCount: _pages.length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+              itemBuilder: (context, index) {
+                final page = _pages[index];
+                return Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Lottie.asset(page['lottie']!, fit: BoxFit.contain,)),
+                      Text(
+                       page['title']!,
+                       style: TextStyle(
+                         fontSize: 24,
+                         fontWeight: FontWeight.bold,
+                       ),
+                      ),
+                      SizedBox(height: 12,),
+                      Text(
+                        page['subtitle']!,
+                        style: TextStyle(fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                );
+              },
+              ),
+            ),
+            if(_isLastPage)
+              Padding(
+                  padding: EdgeInsets.all(16)
+            ),
             Padding(
                 padding: const EdgeInsets.symmetric(
                 horizontal: 24,
